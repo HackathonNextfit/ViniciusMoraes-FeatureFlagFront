@@ -1,8 +1,10 @@
-import { Stack } from "@mui/material";
+import { Stack, Box } from "@mui/material";
 import HeaderInicio from "./components/CustomHeaderInicio";
 import { useState, useEffect } from "react";
 import { Cliente, mockClientes } from "../../mocks/MockClientes";
 import { filtrarClientes } from "./services/FiltrarClientes";
+import CustomButtonDefault from "../../components/CustomButtonDefault";
+import Features from "../Features";
 
 const Inicio = () => {
   const [termoBusca, setTermoBusca] = useState("");
@@ -18,7 +20,8 @@ const Inicio = () => {
   }, [termoBusca]);
 
   return (
-    <Stack gap={1}  sx={{ width: "100%", padding: 0 }}> 
+    <Box sx = {{minHeight: '100vh', backgroundColor: '#EEEEEE', height: "100%" }}> 
+    <Stack gap={1}  sx={{ width: "100%", padding: 0, }}> 
      <HeaderInicio
         onSearchChange={setTermoBusca}
         searchResults={clientesFiltrados}
@@ -26,6 +29,9 @@ const Inicio = () => {
         renderItem={(cliente) => cliente.nome_completo}
       />
     </Stack>
+    <Features />
+    </Box>
+    
   );
 };
 
