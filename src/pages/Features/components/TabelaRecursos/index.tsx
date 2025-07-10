@@ -11,10 +11,10 @@ import React, { useEffect, useImperativeHandle, useState } from "react";
 import {
   getRecursos,
   RecursoPayload,
-} from "../../../Inicio/services/FeatureFlag/Recursos";
+} from "../../../../services/FeatureFlag";
 import ModalCriarRecurso from "../ModalCriar";
 import { __unsafe_useEmotionCache } from "@emotion/react";
-import { deleteRecurso } from "../../../Inicio/services/FeatureFlag/Recursos";
+import { deleteRecurso } from "../../../../services/FeatureFlag";
 import ModalConfirmarExclusao from "../ModalConfirmarExclusao";
 
 export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
@@ -96,7 +96,7 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
     fetchData,
   }));
 
-  const paginationModel = { page: 0, pageSize: 5 };
+  const paginationModel = { page: 0, pageSize: 5};
 
   return (
     <Box sx={{ height: "90%", width: "100%", mt: 4 }}>
@@ -107,6 +107,7 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
           getRowId={(row) => row.identificador}
           initialState={{ pagination: { paginationModel } }}
         pageSizeOptions={[5, 10]}
+        
         />
       </Paper>
 

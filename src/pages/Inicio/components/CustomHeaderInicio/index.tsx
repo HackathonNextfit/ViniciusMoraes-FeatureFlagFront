@@ -8,7 +8,6 @@ import {
   OutlinedInput,
   InputAdornment,
   Divider,
-  Stack,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -28,13 +27,16 @@ interface HeaderInicioProps {
   searchResults: any[];
   onSelectItem: (item: any) => void;
   renderItem: (item: any) => React.ReactNode;
+  onToggleSidebar: () => void; 
 }
+
 
 const HeaderInicio: React.FC<HeaderInicioProps> = ({
   onSearchChange,
   searchResults,
   onSelectItem,
   renderItem,
+  onToggleSidebar,
 }) => { 
 
   const [inputValue, setInputValue] = React.useState("");
@@ -51,9 +53,9 @@ const HeaderInicio: React.FC<HeaderInicioProps> = ({
     <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
       {/* Box 1: Menu e Logo */}
       <Box sx={{ display: "flex", alignItems: "center" }}>
-        <IconButton color="inherit" aria-label="menu" sx={{ mr: 3 }}>
-          <MenuIcon />
-        </IconButton>
+      <IconButton color="inherit" aria-label="menu" sx={{ mr: 3 }} onClick={onToggleSidebar}>
+  <MenuIcon />
+</IconButton>
         <HeaderLogo />
       </Box>
 

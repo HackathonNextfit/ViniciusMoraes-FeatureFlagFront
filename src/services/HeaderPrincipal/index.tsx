@@ -1,6 +1,4 @@
-// src/services/clienteService.ts
-
-import { Cliente } from "../../../../mocks/MockClientes";
+import { Cliente } from "../../mocks/MockClientes";
 
 export const filtrarClientes = (clientes: Cliente[], termo: string): Cliente[] => {
   const termoLower = termo.toLowerCase();

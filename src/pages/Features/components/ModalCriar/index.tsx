@@ -13,7 +13,7 @@ import {
   Slider,
 } from "@mui/material";
 import FlagIcon from "@mui/icons-material/Flag";
-import { criarRecurso } from "../../../Inicio/services/FeatureFlag/Recursos";
+import { criarRecurso } from "../../../../services/FeatureFlag";
 import { ReactNode } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButtonDefault from "../../../../components/CustomButtonDefault";

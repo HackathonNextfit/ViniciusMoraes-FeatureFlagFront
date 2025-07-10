@@ -54,7 +54,7 @@ const Features = () => {
             text="Consulta"
             color="#EEEEEE"
             onClick={() => {
-              setOpenModal(true);
+              
             }}
           />
         </Box>

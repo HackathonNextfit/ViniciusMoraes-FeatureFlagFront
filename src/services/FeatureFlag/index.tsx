@@ -1,7 +1,8 @@
-// src/services/recursosService.ts
 import axios from "axios";
+import { X_FEATURE_FLAG_KEY } from "../../Keys";
 
 const API_URL = "https://featureflag-sandbox.appnext.fit/api/Recursos";
+const FEATURE_FLAG_KEY = X_FEATURE_FLAG_KEY;
 
 interface  RecursoPromise {
   conteudo: RecursoPayload[];
@@ -34,9 +35,14 @@ export const getRecursos = async (): Promise<RecursoPromise> => {
   }
 };
 
-export const deleteRecurso = async (id: string) => {
+export const deleteRecurso = async (identificador: string) => {
   try {
-    const response = await axios.delete(`${API_URL}/${id}`);
+    const response = await axios.delete(`${API_URL}/${identificador}`, {
+      headers: {
+        "X-Feature-Flag-Key": FEATURE_FLAG_KEY,
+      },
+    });
+    console.log(response.data);
     return response.data;
   } catch (error: any) {
     console.error("Erro ao deletar recurso:", error);
