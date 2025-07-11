@@ -1,19 +1,9 @@
-import {
-  DataGrid,
-  GridColDef,
-  GridRenderCellParams,
-  GridActionsCellItem,
-  GridRowParams,
-} from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridActionsCellItem, GridRowParams} from "@mui/x-data-grid";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Box, Modal, Typography, Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import React, { useEffect, useImperativeHandle, useState } from "react";
-import {
-  getRecursos,
-  RecursoPayload,
-} from "../../../../services/FeatureFlag";
+import { getRecursos, RecursoPayload} from "../../../../services/FeatureFlag";
 import ModalCriarRecurso from "../ModalCriar";
-import { __unsafe_useEmotionCache } from "@emotion/react";
 import { deleteRecurso } from "../../../../services/FeatureFlag";
 import ModalConfirmarExclusao from "../ModalConfirmarExclusao";
 
@@ -69,7 +59,7 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
     },
     {
       field: "acoes",
-      headerName: "Ações",
+      headerName: "",
       type: "actions",
       getActions: (params: GridRowParams) => [
         <GridActionsCellItem
@@ -96,40 +86,51 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
     fetchData,
   }));
 
-  const paginationModel = { page: 0, pageSize: 5};
-
   return (
     <Box sx={{ height: "90%", width: "100%", mt: 4 }}>
       <Paper elevation={0} sx={{ height: "100%", p: 2, borderRadius: 2 }}>
-        <DataGrid sx={{border: 'none', color: '#616161', ".MuiDataGrid-columnHeaderTitle": { fontWeight: 600 }}}
-          rows={recursosFiltro}
-          columns={columns}
-          getRowId={(row) => row.identificador}
-          initialState={{ pagination: { paginationModel } }}
-        pageSizeOptions={[5, 10]}
-        
-        />
+      <DataGrid
+        rows={recursosFiltro}
+        columns={columns}
+        getRowId={(row) => row.identificador}
+        initialState={{ 
+          pagination: { 
+            paginationModel: { page: 0, pageSize: 5 } 
+          } 
+        }}
+        pageSizeOptions={[10, 15, 30]}
+        sx={{
+          border: 'none', 
+          color: '#616161', 
+          '& .MuiDataGrid-columnHeaderTitle': { 
+            fontWeight: 600 
+          }
+        }}
+        localeText={{
+          footerRowSelected: count => `${count.toLocaleString()} linha(s) selecionada(s)`,
+          footerTotalVisibleRows: (visibleCount, totalCount) =>
+            `${visibleCount.toLocaleString()} de ${totalCount.toLocaleString()}`,
+          paginationRowsPerPage: 'Exibir:',
+        }}
+      />
       </Paper>
-
       <ModalCriarRecurso
         open={modalOpen}
         onClose={handleCloseModal}
         onSave={fetchData}
       />
       <ModalConfirmarExclusao
-      open={modalConfirmarOpen}
-      onClose={() => setModalConfirmarOpen(false)}
-      onConfirm={() => {
-        if (recursoSelecionado) {
-          handleConfirmDelete(recursoSelecionado);
-        }
-      }}
-      nomeRecurso={recursoSelecionado?.descricao}
-    />
-    </Box>
-    
-  );
-  
+        open={modalConfirmarOpen}
+        onClose={() => setModalConfirmarOpen(false)}
+        onConfirm={() => {
+          if (recursoSelecionado) {
+            handleConfirmDelete(recursoSelecionado);
+          }
+        }}
+        nomeRecurso={recursoSelecionado?.descricao}
+      />
+    </Box>    
+  );  
 });
 
 export default TabelaRecursosDataGrid;

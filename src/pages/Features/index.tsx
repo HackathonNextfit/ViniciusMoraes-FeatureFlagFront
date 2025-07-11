@@ -21,7 +21,7 @@ const Features = () => {
   };
 
   return (
-    <Box sx={{ padding: 2, mt: 10, paddingLeft: 30, paddingRight : 30, height: '80%'}}>
+    <Box sx={{ padding: 2, mt: 1, paddingLeft: 10, paddingRight : 10, height: '80%'}}>
       <Box
         sx={{
           display: "flex",

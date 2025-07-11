@@ -49,7 +49,7 @@ const HeaderInicio: React.FC<HeaderInicioProps> = ({
   
   return (
     
-    <AppBar position="fixed" sx={{ backgroundColor: "#EF6C00", padding: "0px" }}>
+    <AppBar position="fixed" elevation={0} sx={{ backgroundColor: "#EF6C00", padding: "0px" }}>
     <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
       {/* Box 1: Menu e Logo */}
       <Box sx={{ display: "flex", alignItems: "center" }}>

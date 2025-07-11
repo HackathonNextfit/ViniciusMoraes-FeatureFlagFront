@@ -33,11 +33,12 @@ const SidebarUnderHeader: React.FC<SidebarUnderHeaderProps> = ({
           left: 0,
           width: 240,
           height: `calc(100% - ${headerHeight}px)`,
-          bgcolor: "background.paper",
-          boxShadow: 3,
+          bgcolor: "#EEEEEE",
+          
           zIndex: 1200,
           display: "flex",
           flexDirection: "column",
+        
         }}
       >
         <SidebarButton 
