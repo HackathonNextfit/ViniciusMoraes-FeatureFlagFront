@@ -31,7 +31,7 @@ const CustomButtonNoBorder = ({
         textTransform: "none",
         '&:hover': {
           backgroundColor: "transparent",
-          textDecoration: "underline", // opcional: pra indicar que é clicável
+          
         },
       }}
     >
