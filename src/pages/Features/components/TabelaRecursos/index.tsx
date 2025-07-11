@@ -98,7 +98,7 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
             paginationModel: { page: 0, pageSize: 5 } 
           } 
         }}
-        pageSizeOptions={[10, 15, 30]}
+        pageSizeOptions={[5, 10, 15]}
         sx={{
           border: 'none', 
           color: '#616161', 
