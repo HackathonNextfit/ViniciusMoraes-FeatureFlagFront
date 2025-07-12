@@ -9,10 +9,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import AddIcon from "@mui/icons-material/Add";
 import FeaturesDetails from "./components/FeaturesDetails";
+import ModalConsulta from "./components/ModalConsulta";
 
 
 const Features = () => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openCriarModal, setOpenCriarModal] = useState(false); // Renomeado para clareza
+  const [openConsultaModal, setOpenConsultaModal] = useState(false); // Novo estado para o ModalConsulta
   const [searchValue, setSearchValue] = useState("");
   const [mostrarDetalhes, setMostrarDetalhes] = useState(false);
 
@@ -25,7 +27,7 @@ const Features = () => {
 
   return (
     <Box sx={{ padding: 2, mt: 1, paddingLeft: 10, paddingRight: 10, height: "80%" }}>
-      
+
       {/* Cabeçalho e botões visíveis apenas quando não estiver em modo de ver os detalhes */}
       {!mostrarDetalhes && (
         <Box
@@ -50,7 +52,7 @@ const Features = () => {
               text="Feature"
               color="#EF6C00"
               onClick={() => {
-                setOpenModal(true);
+                setOpenCriarModal(true); // Usa o novo estado para o modal de criação
               }}
             />
             <CustomButtonDefault
@@ -59,16 +61,25 @@ const Features = () => {
               textColor="#EF6C00"
               text="Consulta"
               color="#EEEEEE"
-              onClick={() => {}}
+              onClick={() => {
+                setOpenConsultaModal(true); // Abre o ModalConsulta
+              }}
             />
           </Box>
         </Box>
       )}
 
+      {/* Modal de Criação de Recurso */}
       <ModalCriarRecurso
-        open={openModal}
-        onClose={() => setOpenModal(false)}
+        open={openCriarModal} // Usa o novo estado
+        onClose={() => setOpenCriarModal(false)} // Fecha o modal de criação
         onSave={handleSave}
+      />
+
+      {/* Modal de Consulta */}
+      <ModalConsulta
+        open={openConsultaModal} // Controla a abertura do ModalConsulta
+        onClose={() => setOpenConsultaModal(false)} // Função para fechar o ModalConsulta
       />
 
       {/* Conteúdo principal (tabela ou detalhes) */}
