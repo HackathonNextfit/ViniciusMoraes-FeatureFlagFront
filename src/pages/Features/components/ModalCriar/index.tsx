@@ -12,7 +12,7 @@ import {
   IconButton,
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { criarRecurso } from "../../../../services/FeatureFlagRecursos";
+import { criarRecurso, RecursoPayload } from "../../../../services/FeatureFlagRecursos";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButtonDefault from "../../../../components/CustomButtonDefault";
 import { useSnackbar } from 'notistack';
@@ -41,7 +41,7 @@ const ModalCriarRecurso = ({
     };
 
     try {
-      await criarRecurso(payload);
+      await criarRecurso(payload as RecursoPayload);
       setIdentificador("");
       setDescricao("");
       setPorcentagem(0);

@@ -20,14 +20,16 @@ const DistribuicaoDeAcesso = () => {
   const total = data.reduce((acc, curr) => acc + curr.value, 0);
 
   return (
-    <Paper elevation={1} sx={{ borderRadius: 2, p: 2 }}>
-      <CustomTextDefault size="subtitle1" text="Distribuição de Acesso" sx={{ fontWeight: 600, mb: 3, color: "#616161" }} />
+    <Paper elevation={1} sx={{ borderRadius: 2, p: 4 }}>
+      <CustomTextDefault size="subtitle1" text="Distribuição de Acesso" sx={{ fontWeight: 600, mb: 2, color: "#616161" }} />
 
       <Box
         display="flex"
         flexDirection={{ xs: "column", sm: "row" }}
         alignItems="center"
         justifyContent="space-between"
+       
+        
       >
         {/* Donut Chart sem rótulos */}
         <PieChart
@@ -46,7 +48,7 @@ const DistribuicaoDeAcesso = () => {
 
         {/* Legenda */}
         <Stack
-          spacing={10}
+          spacing={2}
           ml={{ sm: 4 }}
           mt={{ xs: 3, sm: 0 }}
           direction="row"

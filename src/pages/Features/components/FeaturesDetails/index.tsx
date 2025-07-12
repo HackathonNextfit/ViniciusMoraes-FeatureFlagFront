@@ -10,24 +10,65 @@ type FeaturesDetailsProps = {
 
 const FeaturesDetails = ({ onVoltar }: FeaturesDetailsProps) => {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%", height: "100%"}}> 
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 2,
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      {/* Topo com subtítulo e botão de voltar */}
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <CustomTextDefault
+          text="Detalhes da feature"
+          size="h5"
+          sx={{ fontWeight: 600, color: "#616161" }}
+        />
+        <Button onClick={onVoltar} variant="contained" sx={{ height: 36 }}>
+          Voltar
+        </Button>
+      </Box>
 
-      <Button onClick={onVoltar}>Voltar</Button>
-      <CustomTextDefault text="Detalhes da Feature" size="h3" sx={{ mr: 4, fontWeight: 600, color: "#616161" }} />
-    <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
-      
+      {/* Duas Box com DadosDaFeature e DistribuicaoDeAcesso */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+          gap: 0,
+          
+        }}
+      >
+        <Box
+          sx={{
+            flex: 1,
+            minWidth: "350px",
+            pr: 1,
+          }}
+        >
+          <DadosDaFeature
+            identificador="avaliacao_fisica"
+            descricao="Módulo de avaliação física"
+            porcentagem={55}
+            criadoEm="03/07/2025"
+          />
+        </Box>
 
-      <DadosDaFeature
-        identificador="avaliacao_fisica"
-        descricao="Módulo de avaliação física"
-        porcentagem={55}
-        criadoEm="03/07/2025" // não consegui dar um get na data de criação, isso me gerou vários erros e deixei em mock (não encontrei esse dado no postman)
-      />
+        <Box
+          sx={{
+            flex: 1,
+            minWidth: "350px",
+            pl: 1, 
+          }}
+        >
+          <DistribuicaoDeAcesso />
+        </Box>
+      </Box>
 
-      <DistribuicaoDeAcesso />
-      
-    </Box>
-    <TabelaUnidadesCadastradas />
+      {/* Tabela com unidades cadastradas */}
+      <TabelaUnidadesCadastradas />
     </Box>
   );
 };

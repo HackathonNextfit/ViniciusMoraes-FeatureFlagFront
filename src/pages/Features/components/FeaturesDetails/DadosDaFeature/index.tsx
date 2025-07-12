@@ -16,8 +16,8 @@ const DadosDaFeature = ({ identificador, descricao, porcentagem, criadoEm }: Dad
         borderRadius: 2,
         padding: 2,
         boxShadow: 1,
-        width: "100%",
-        maxWidth: 300,
+        height: 298,
+      
       }}
     >
       <CustomTextDefault size="subtitle1" sx={{ fontWeight: 600, mb: 3, color: "#616161" }}>
