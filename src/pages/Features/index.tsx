@@ -13,8 +13,8 @@ import ModalConsulta from "./components/ModalConsulta";
 
 
 const Features = () => {
-  const [openCriarModal, setOpenCriarModal] = useState(false); // Renomeado para clareza
-  const [openConsultaModal, setOpenConsultaModal] = useState(false); // Novo estado para o ModalConsulta
+  const [openCriarModal, setOpenCriarModal] = useState(false); 
+  const [openConsultaModal, setOpenConsultaModal] = useState(false); 
   const [searchValue, setSearchValue] = useState("");
   const [mostrarDetalhes, setMostrarDetalhes] = useState(false);
 
@@ -52,7 +52,7 @@ const Features = () => {
               text="Feature"
               color="#EF6C00"
               onClick={() => {
-                setOpenCriarModal(true); // Usa o novo estado para o modal de criação
+                setOpenCriarModal(true); 
               }}
             />
             <CustomButtonDefault
@@ -62,7 +62,7 @@ const Features = () => {
               text="Consulta"
               color="#EEEEEE"
               onClick={() => {
-                setOpenConsultaModal(true); // Abre o ModalConsulta
+                setOpenConsultaModal(true); 
               }}
             />
           </Box>
@@ -71,15 +71,15 @@ const Features = () => {
 
       {/* Modal de Criação de Recurso */}
       <ModalCriarRecurso
-        open={openCriarModal} // Usa o novo estado
-        onClose={() => setOpenCriarModal(false)} // Fecha o modal de criação
+        open={openCriarModal}
+        onClose={() => setOpenCriarModal(false)} 
         onSave={handleSave}
       />
 
       {/* Modal de Consulta */}
       <ModalConsulta
-        open={openConsultaModal} // Controla a abertura do ModalConsulta
-        onClose={() => setOpenConsultaModal(false)} // Função para fechar o ModalConsulta
+        open={openConsultaModal} 
+        onClose={() => setOpenConsultaModal(false)} 
       />
 
       {/* Conteúdo principal (tabela ou detalhes) */}

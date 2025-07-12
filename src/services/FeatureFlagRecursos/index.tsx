@@ -13,7 +13,7 @@ export type RecursoPayload = {
   identificador: string;
   descricao: string;
   porcentagem: number;
-  createdAt: string; //testando pra ver se encontrava de alguma forma
+  createdAt: string; //testando pra ver se encontrava de alguma forma de puxar a data de criação
 };
 
 const showError = (message: string) => {

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Box, Slide } from "@mui/material";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import GroupsIcon from '@mui/icons-material/Groups';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
 import SidebarButton from "../SidebarButton";
 import DashboardIcon from "../../../../assets/dashboardIcon.png";
 

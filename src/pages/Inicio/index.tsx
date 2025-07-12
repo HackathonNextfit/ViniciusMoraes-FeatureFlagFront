@@ -37,7 +37,7 @@ const Inicio = () => {
         onClose={() => setSidebarOpen(false)}
       />
 
-      {/* Conteúdo principal, empurrado quando sidebar está aberto */}
+      {/* Conteúdo principal, ajustado quando sidebar está aberto */}
       <Box
         sx={{
           marginTop: "64px", 

@@ -1,4 +1,3 @@
-// src/components/SidebarButton.tsx
 import { Button, Box } from "@mui/material";
 import { ReactNode } from "react";
 

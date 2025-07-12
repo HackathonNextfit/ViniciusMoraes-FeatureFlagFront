@@ -1,7 +1,5 @@
-import { Modal, Box, Typography, Button, Stack } from "@mui/material";
-import ErrorIcon from '@mui/icons-material/Error';
+import { Modal, Box, Typography, Stack } from "@mui/material";
 import IconExcalamacaoVermelho from "../../../../assets/IconExcalamacaoVermelho.png"
-import CustomButtonNoBorder from "../../../../components/CustomButtonNoBorder";
 import CustomButtonDefault from "../../../../components/CustomButtonDefault";
 
 type ModalConfirmarExclusaoProps = {

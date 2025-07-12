@@ -15,7 +15,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { criarRecurso, RecursoPayload } from "../../../../services/FeatureFlagRecursos";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButtonDefault from "../../../../components/CustomButtonDefault";
-import { useSnackbar } from 'notistack';
 
 
 type ModalCriarRecursoProps = {
