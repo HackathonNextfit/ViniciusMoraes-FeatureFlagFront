@@ -4,17 +4,15 @@ import {
   Modal,
   Box,
   TextField,
-  Button,
   Stack,
   Typography,
   Card,
   CardContent,
-  Divider,
   Slider,
+  IconButton,
 } from "@mui/material";
-import FlagIcon from "@mui/icons-material/Flag";
+import CloseIcon from '@mui/icons-material/Close';
 import { criarRecurso } from "../../../../services/FeatureFlag";
-import { ReactNode } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButtonDefault from "../../../../components/CustomButtonDefault";
 
@@ -92,12 +90,26 @@ const ModalCriarRecurso = ({
               height: 48,
             }}
           >
-            <AddIcon color="warning" />
+            <AddIcon color="warning" fontSize="large"/>
           </Box>
 
           <Typography sx={{ fontWeight: "700", color: "#616161" }} variant="h5">
             Nova Feature
           </Typography>
+
+          <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "flex-end" }}>
+            <IconButton 
+              onClick={onClose}
+              sx={{ 
+                color: "#616161",
+                '&:hover': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.04)'
+                }
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Box>
         </Stack>
 
         {/* Card: Dados principais */}
@@ -168,7 +180,7 @@ const ModalCriarRecurso = ({
               aria-label="Custom marks"
               defaultValue={20}
               getAriaValueText={valuetext}
-              step={10}
+              step={5}
               valueLabelDisplay="auto"
               marks={marks}
               onChange={(e, value) => setPorcentagem(value as number)}

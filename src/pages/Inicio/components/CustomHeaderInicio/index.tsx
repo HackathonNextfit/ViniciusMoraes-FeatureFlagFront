@@ -63,24 +63,32 @@ const HeaderInicio: React.FC<HeaderInicioProps> = ({
       <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center", height: "40px" }}>
         <Box sx={{ position: "relative", width: "500px" }}>
           <FormControl fullWidth sx={{ color: "white" }}>
-            <OutlinedInput
-              sx={{
+          <OutlinedInput
+            sx={{
+              color: "white",
+              "& .MuiOutlinedInput-notchedOutline": { border: "none" },
+              "&:hover .MuiOutlinedInput-notchedOutline": { border: "none" },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": { border: "none" },
+              backgroundColor: "hsla(0,0%,100%,.1)",
+              padding: "0 10px",
+              height: "40px",
+              "&::placeholder": {
+                color: "white", 
+                opacity: 1, 
+              },
+              "& .MuiInputBase-input::placeholder": {
                 color: "white",
-                "& .MuiOutlinedInput-notchedOutline": { border: "none" },
-                "&:hover .MuiOutlinedInput-notchedOutline": { border: "none" },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": { border: "none" },
-                backgroundColor: "hsla(0,0%,100%,.1)",
-                padding: "0 10px",
-                height: "40px",
-              }}
-              onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Pesquisar clientes e leads"
-              startAdornment={
-                <InputAdornment position="start">
-                  <SearchIcon sx={{ color: "white" }} />
-                </InputAdornment>
+                opacity: 1,
               }
-            />
+            }}
+            onChange={(e) => onSearchChange(e.target.value)}
+            placeholder="Pesquisar clientes e leads"
+            startAdornment={
+              <InputAdornment position="start">
+                <SearchIcon sx={{ color: "white" }} />
+              </InputAdornment>
+            }
+          />
           </FormControl>
 
           {/* Dropdown de sugestões */}
