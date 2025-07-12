@@ -1,4 +1,3 @@
-// src/components/CustomButtonDefault.tsx
 import { Button } from "@mui/material";
 import { ReactNode } from "react";
 
@@ -22,16 +21,25 @@ const CustomButtonDefault = ({
   return (
     <Button
       variant="contained"
-      color={color as any}
       style={{
-        fontSize: "12px",
+        fontSize: 16,
         fontWeight: 700,
         backgroundColor: color,
         borderRadius: "8px",
         color: textColor,
-        paddingLeft: "30px",
-        paddingRight: "30px",
+        paddingLeft: "20px",
+        paddingRight: "20px",
         border: borderColor ? `2px solid ${borderColor}` : "none",
+        height: 45,
+        boxShadow: "none",
+        transition: 'background-color 0.2s ease',
+      }}
+      sx={{
+        '&:hover': {
+          backgroundColor: color, 
+          opacity: 0.8, 
+          boxShadow: "none",
+        }
       }}
       onClick={onClick}
       startIcon={startIcon}

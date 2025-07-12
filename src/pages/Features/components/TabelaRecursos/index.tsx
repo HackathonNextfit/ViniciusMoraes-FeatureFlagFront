@@ -8,6 +8,7 @@ import { deleteRecurso } from "../../../../services/FeatureFlag";
 import ModalConfirmarExclusao from "../ModalConfirmarExclusao";
 import ModalOpcoesLateral from "../ModalOpcoesLateral";
 
+
 export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
   const [modalConfirmarOpen, setModalConfirmarOpen] = useState(false);
   const [recursos, setRecursos] = useState<RecursoPayload[]>([]);
@@ -56,9 +57,10 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
     { field: "descricao", headerName: "Descrição", flex: 1, resizable: false},
     {
       field: "porcentagem",
-      headerName: "Rollout (%)",
+      headerName: "Rollout",
       type: "number",
       flex: 0.5,
+      renderCell: (params) => `${params.value}%`,
     },
     {
       field: "acoes",
@@ -82,6 +84,8 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
   useImperativeHandle(ref, () => ({
     fetchData,
   }));
+
+  
 
   return (
     <Box sx={{ height: "90%", width: "100%", mt: 4 }}>

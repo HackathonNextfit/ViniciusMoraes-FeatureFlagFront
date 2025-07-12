@@ -63,17 +63,18 @@ import { useEffect, useState } from "react";
             top: rect.bottom + 8,
             left: rect.left,
             zIndex: 1500,
-            width: 125,
+            width: 100,
+            height: 100,
             borderRadius: 2,
             py: 1,
             px: 1,
           }}
         >
-          <Stack spacing={1}>
+          <Stack spacing={2.5}>
             <Stack
               direction="row"
               alignItems="center"
-              sx={{ cursor: "pointer", px: 1 }}
+              sx={{ cursor: "pointer", px: 1, }}
               onClick={onClose}
             >
               <Box sx={{ width: 24, display: "flex", justifyContent: "center" }}>
