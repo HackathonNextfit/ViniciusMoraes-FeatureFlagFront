@@ -12,9 +12,10 @@ import {
   IconButton,
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import { criarRecurso } from "../../../../services/FeatureFlag";
+import { criarRecurso } from "../../../../services/FeatureFlagRecursos";
 import AddIcon from "@mui/icons-material/Add";
 import CustomButtonDefault from "../../../../components/CustomButtonDefault";
+import { useSnackbar } from 'notistack';
 
 
 type ModalCriarRecursoProps = {
@@ -191,7 +192,7 @@ const ModalCriarRecurso = ({
         {/* Botões */}
         <Box display="flex" justifyContent="flex-end" gap={2} >
         <CustomButtonDefault color="#EEEEEE" textColor="#EF6C00" text="Fechar" onClick={onClose} />
-        <CustomButtonDefault color="#EF6C00" text="Criar" onClick={handleCriar} />
+        <CustomButtonDefault color="#EF6C00" text="Salvar" onClick={handleCriar} />
           
           
         </Box>

@@ -8,7 +8,7 @@ type SidebarButtonProps = {
   onClick: () => void;
   textColor?: string;
   selected?: boolean;
-  highlightColor?: string; // cor da barra à esquerda
+  highlightColor?: string; 
 };
 
 const SidebarButton = ({
@@ -17,7 +17,7 @@ const SidebarButton = ({
   onClick,
   textColor = "#616161",
   selected = false,
-  highlightColor = "#1976D2", // cor padrão azul
+  highlightColor = "#1976D2", 
 }: SidebarButtonProps) => (
   <Box
     sx={{

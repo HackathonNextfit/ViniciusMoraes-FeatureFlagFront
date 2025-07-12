@@ -2,9 +2,9 @@ import { DataGrid, GridColDef, GridActionsCellItem, GridRowParams} from "@mui/x-
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Box, Paper } from "@mui/material";
 import React, { useEffect, useImperativeHandle, useState } from "react";
-import { getRecursos, RecursoPayload} from "../../../../services/FeatureFlag";
+import { getRecursos, RecursoPayload} from "../../../../services/FeatureFlagRecursos";
 import ModalCriarRecurso from "../ModalCriar";
-import { deleteRecurso } from "../../../../services/FeatureFlag";
+import { deleteRecurso } from "../../../../services/FeatureFlagRecursos";
 import ModalConfirmarExclusao from "../ModalConfirmarExclusao";
 import ModalOpcoesLateral from "../ModalOpcoesLateral";
 
