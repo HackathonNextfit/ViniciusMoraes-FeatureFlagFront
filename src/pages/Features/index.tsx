@@ -8,11 +8,13 @@ import CustomInputWithIcon from "./components/InputComIcon";
 import SearchIcon from "@mui/icons-material/Search";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import AddIcon from "@mui/icons-material/Add";
+import FeaturesDetails from "./components/FeaturesDetails";
 
 
 const Features = () => {
   const [openModal, setOpenModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [mostrarDetalhes, setMostrarDetalhes] = useState(false);
 
   const tabelaRef = useRef<any>(null);
 
@@ -21,53 +23,59 @@ const Features = () => {
   };
 
   return (
-    <Box sx={{ padding: 2, mt: 1, paddingLeft: 10, paddingRight : 10, height: '80%'}}>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", height: '100%'}}>
-          <CustomTextDefault text="Features" size="h3" sx={{ mr: 4, fontWeight: 600, color: "#616161"}} />
-          <CustomInputWithIcon
-            placeholder="Pesquisar"
-            icon={<SearchIcon />}
-            onChange={(value) => setSearchValue(value)}
-            value={searchValue}
-          />
+    <Box sx={{ padding: 2, mt: 1, paddingLeft: 10, paddingRight: 10, height: "80%" }}>
+      
+      {/* Cabeçalho e botões visíveis apenas quando não estiver em modo de ver os detalhes */}
+      {!mostrarDetalhes && (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box sx={{ display: "flex", alignItems: "center", height: "100%" }}>
+            <CustomTextDefault text="Features" size="h3" sx={{ mr: 4, fontWeight: 600, color: "#616161" }} />
+            <CustomInputWithIcon
+              placeholder="Pesquisar"
+              icon={<SearchIcon />}
+              onChange={(value) => setSearchValue(value)}
+              value={searchValue}
+            />
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
+            <CustomButtonDefault
+              startIcon={<AddIcon />}
+              text="Feature"
+              color="#EF6C00"
+              onClick={() => {
+                setOpenModal(true);
+              }}
+            />
+            <CustomButtonDefault
+              startIcon={<FindInPageIcon />}
+              borderColor="#EF6C00"
+              textColor="#EF6C00"
+              text="Consulta"
+              color="#EEEEEE"
+              onClick={() => {}}
+            />
+          </Box>
         </Box>
-        <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
-          <CustomButtonDefault
-            startIcon={<AddIcon />}
-            text="Feature"
-            color="#EF6C00"
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          />
-          <CustomButtonDefault
-            startIcon={<FindInPageIcon />}
-            borderColor="#EF6C00"
-            textColor="#EF6C00"
-            text="Consulta"
-            color="#EEEEEE"
-            onClick={() => {
-              
-            }}
-          />
-        </Box>
-      </Box>
+      )}
 
       <ModalCriarRecurso
         open={openModal}
-        onClose={() => {
-          setOpenModal(false);
-        }}
+        onClose={() => setOpenModal(false)}
         onSave={handleSave}
       />
-      <TabelaRecursos ref={tabelaRef} searchValue={searchValue} />
+
+      {/* Conteúdo principal (tabela ou detalhes) */}
+      {mostrarDetalhes ? (
+        <FeaturesDetails onVoltar={() => setMostrarDetalhes(false)} />
+      ) : (
+        <TabelaRecursos ref={tabelaRef} searchValue={searchValue} onVerDetalhes={() => setMostrarDetalhes(true)} />
+      )}
     </Box>
   );
 };

@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
     onClose: () => void;
     onEditar: () => void;
     onRemover: () => void;
+    onDetalhes: () => void;
   };
   
   const ModalOpcoesLateral = ({
@@ -25,6 +26,7 @@ import { useEffect, useState } from "react";
     onClose,
     onEditar,
     onRemover,
+    onDetalhes,
   }: ModalOpcoesLateralProps) => {
     const [position, setPosition] = useState({ top: 0, left: 0 });
   
@@ -74,16 +76,17 @@ import { useEffect, useState } from "react";
             <Stack
               direction="row"
               alignItems="center"
-              sx={{ cursor: "pointer", px: 1, }}
-              onClick={onClose}
+              sx={{ cursor: "pointer", px: 1 }}
+              onClick={onDetalhes}
             >
-              <Box sx={{ width: 24, display: "flex", justifyContent: "center" }}>
-                <Box component="img" src={iconVisualizarDetalhes} alt="Detalhes" width={20} height={20} />
-              </Box>
-              <Typography variant="body2" ml={1}>
-                Detalhes
-              </Typography>
-            </Stack>
+            <Box sx={{ width: 24, display: "flex", justifyContent: "center" }}>
+              <Box component="img" src={iconVisualizarDetalhes} alt="Detalhes" width={20} height={20} />
+            </Box>
+            <Typography variant="body2" ml={1}>
+              Detalhes
+            </Typography>
+          </Stack>
+
   
             <Stack
               direction="row"

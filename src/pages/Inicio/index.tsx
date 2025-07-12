@@ -40,7 +40,7 @@ const Inicio = () => {
       {/* Conteúdo principal, empurrado quando sidebar está aberto */}
       <Box
         sx={{
-          marginTop: "64px", // altura do AppBar
+          marginTop: "64px", 
           marginLeft: sidebarOpen ? "240px" : "0px",
           padding: 2,
           transition: "margin-left 0.3s",

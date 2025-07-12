@@ -8,8 +8,12 @@ import { deleteRecurso } from "../../../../services/FeatureFlagRecursos";
 import ModalConfirmarExclusao from "../ModalConfirmarExclusao";
 import ModalOpcoesLateral from "../ModalOpcoesLateral";
 
+type TabelaRecursosProps = {
+  searchValue: string;
+  onVerDetalhes: () => void;
+};
 
-export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
+export const TabelaRecursosDataGrid = React.forwardRef(({ searchValue, onVerDetalhes }: TabelaRecursosProps, ref) => {
   const [modalConfirmarOpen, setModalConfirmarOpen] = useState(false);
   const [recursos, setRecursos] = useState<RecursoPayload[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,7 +23,7 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
 
 
   const recursosFiltro = recursos.filter((recurso) => {
-    return recurso.identificador.toLowerCase().includes(props.searchValue.toLowerCase());
+    return recurso.identificador.toLowerCase().includes(searchValue.toLowerCase());
   });
 
   const fetchData = async () => {
@@ -85,7 +89,6 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
     fetchData,
   }));
 
-  
 
   return (
     <Box sx={{ height: "90%", width: "100%", mt: 4 }}>
@@ -158,6 +161,10 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
         onRemover={() => {
           setMenuOpen(false);
           setModalConfirmarOpen(true);
+        }}  
+        onDetalhes={() => {
+          setMenuOpen(false); // ✅ isso sim está definido
+          onVerDetalhes();    // ✅ essa função foi passada via props e agora está corretamente desestruturada
         }}
       />
 
