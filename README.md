@@ -1,4 +1,4 @@
-<h1>LER O READ.ME</h1>
+<h1>LER O README.md</h1>
 
 <h2>Frontend de Gerenciamento de Feature Flags (Next Fit)</h2>
 
