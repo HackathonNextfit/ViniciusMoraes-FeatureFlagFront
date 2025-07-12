@@ -52,8 +52,8 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
   };
 
   const columns: GridColDef[] = [
-    { field: "identificador", headerName: "Identificador", flex: 1 },
-    { field: "descricao", headerName: "Descrição", flex: 1 },
+    { field: "identificador", headerName: "Identificador", flex: 1, resizable: false},
+    { field: "descricao", headerName: "Descrição", flex: 1, resizable: false},
     {
       field: "porcentagem",
       headerName: "Rollout (%)",
@@ -64,7 +64,7 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
       field: "acoes",
       headerName: "",
       type: "actions",
-      getActions: (params: GridRowParams) => [
+        getActions: (params: GridRowParams) => [
         <GridActionsCellItem
           icon={<MoreVertIcon />}
           label="Menu"
@@ -88,8 +88,13 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
       <Paper elevation={0} sx={{ height: "100%", p: 2, borderRadius: 2 }}>
       <DataGrid
         rows={recursosFiltro}
-        columns={columns}
+        columns={columns.map(col => ({ ...col, filterable: false }))}
         getRowId={(row) => row.identificador}
+        checkboxSelection={false}
+        disableRowSelectionOnClick
+        disableColumnMenu
+        disableColumnSorting
+        disableColumnSelector
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 5 },
@@ -98,28 +103,31 @@ export const TabelaRecursosDataGrid = React.forwardRef((props: any, ref) => {
         pageSizeOptions={[5, 10, 15]}
         sx={{
           border: "none",
-          color: "#616161", // Cor padrão para textos gerais
+          color: "#616161",
           "& .MuiDataGrid-columnHeaderTitle": {
             fontWeight: 600,
-            color: "#616161", // Cabeçalhos das colunas
+            color: "#616161",
           },
           "& .MuiDataGrid-cell": {
-            color: "#616161", // Texto das células
+            color: "#616161",
           },
           "& .MuiIconButton-root": {
-            color: "#616161", // Ícones (pagination, actions)
+            color: "#616161",
           },
           "& .MuiSvgIcon-root": {
-            color: "#616161", // Ícones SVG (setas, três pontinhos)
+            color: "#616161",
           },
           "& .MuiTablePagination-root": {
-            color: "#616161", // Texto do rodapé (pagination)
+            color: "#616161",
           },
           "& .MuiTablePagination-selectLabel": {
-            color: "#616161", // "Exibir:"
+            color: "#616161",
           },
           "& .MuiInputBase-root": {
-            color: "#616161", // Input de seleção de página
+            color: "#616161",
+          },
+          "& .MuiDataGrid-columnSeparator": {
+            display: "none",
           },
         }}
         localeText={{
