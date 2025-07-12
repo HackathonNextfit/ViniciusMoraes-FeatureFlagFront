@@ -41,8 +41,7 @@ Durante o desenvolvimento, a funcionalidade de exclusão (DELETE) apresentou err
 Além disso, não consegui pegar a data de criação das feature flags.
 
 Pontuando que em determinados pontos não fui 100% fiel ao figma, devido ao tempo, 
-e porque aproveitei pra estudar o que eu estava fazendo, 
-mas tentei manter a semelhança.
+e porque aproveitei pra estudar o que eu estava fazendo, mas tentei manter a semelhança.
 
 
 ----
