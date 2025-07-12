@@ -13,6 +13,7 @@ export type RecursoPayload = {
   identificador: string;
   descricao: string;
   porcentagem: number;
+  createdAt: string; //testando pra ver se encontrava de alguma forma
 };
 
 const showError = (message: string) => {
@@ -73,6 +74,19 @@ export const getRecursos = async (): Promise<RecursoPromise> => {
   }
 };
 
+//fiz esse getporid mas sem sucesso, porque não encontrei a data de criação
+
+export const getRecursoPorId = async (identificador: string) => {
+  try {
+    const response = await axios.get(`${API_URL}/${identificador}`);
+    return response.data;
+  } catch (error: any) {
+    const errorMessage = error.response?.data?.message || 'Erro ao buscar recurso';
+    showError(errorMessage);
+    throw error;
+  }
+};
+
 export const deleteRecurso = async (identificador: string) => {
   try {
     const response = await axios.delete(`${API_URL}/${identificador}`, {
@@ -87,4 +101,6 @@ export const deleteRecurso = async (identificador: string) => {
     showError(errorMessage);
     throw error;
   }
+
+  
 };

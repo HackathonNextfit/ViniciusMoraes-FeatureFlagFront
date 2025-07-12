@@ -10,19 +10,25 @@ type SidebarUnderHeaderProps = {
   open: boolean;
   onClose: () => void;
   headerHeight?: number; 
+  resetFeaturesView?: () => void;
 };
 
 const SidebarUnderHeader: React.FC<SidebarUnderHeaderProps> = ({
   open,
   onClose,
   headerHeight = 64,
+  resetFeaturesView,
 }) => {
   const [selected, setSelected] = useState("Dashboard");
 
   const handleSelect = (label: string) => {
     setSelected(label);
-    onClose(); // ou remova se não quiser fechar ao clicar
+    onClose();
   };
+
+  if (selected === "Features" && resetFeaturesView) {
+    resetFeaturesView();
+  }
 
   return (
     <Slide direction="right" in={open} mountOnEnter unmountOnExit>

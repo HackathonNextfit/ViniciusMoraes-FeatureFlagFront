@@ -163,8 +163,8 @@ export const TabelaRecursosDataGrid = React.forwardRef(({ searchValue, onVerDeta
           setModalConfirmarOpen(true);
         }}  
         onDetalhes={() => {
-          setMenuOpen(false); // ✅ isso sim está definido
-          onVerDetalhes();    // ✅ essa função foi passada via props e agora está corretamente desestruturada
+          setMenuOpen(false); 
+          onVerDetalhes();   
         }}
       />
 

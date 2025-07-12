@@ -22,6 +22,7 @@ const Features = () => {
     tabelaRef.current?.fetchData();
   };
 
+
   return (
     <Box sx={{ padding: 2, mt: 1, paddingLeft: 10, paddingRight: 10, height: "80%" }}>
       
